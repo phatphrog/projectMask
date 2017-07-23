@@ -37,7 +37,7 @@ public class MapGenerator : MonoBehaviour {
         //different values for i will generate different cave shapes
         //e.g., change to different rule sets after a number of steps
         //then change back
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 5; i++)
         {
             SmoothMap();
         }
@@ -217,7 +217,101 @@ public class MapGenerator : MonoBehaviour {
     void CreatePassage(Room roomA, Room roomB, Coord tileA, Coord tileB)
     {
         Room.ConnectRooms(roomA, roomB);
-        Debug.DrawLine(CoordToWorldPoint(tileA), CoordToWorldPoint(tileB), Color.blue, 100);
+        
+        //Debug.DrawLine(CoordToWorldPoint(tileA), CoordToWorldPoint(tileB), Color.blue, 100);
+           
+        List<Coord> line = GetLine(tileA, tileB);
+        //draw our cirlce of 0's along each of the coords in our line
+        foreach (Coord c in line)
+        {
+            //TODO! randomize width of connected passageways
+            DrawCircle(c, 2);
+        }
+    }
+
+    //method to draw cirlces so we can draw each point in the passge
+    void DrawCircle(Coord c, int r)
+    {
+        for (int x = -r; x <= r; x++)
+        {
+            for(int y = -r; y <= r; y++)
+            {
+                if(x*x + y*y <= r*r)
+                {
+                    int drawX = c.tileX + x;
+                    int drawY = c.tileY + y;
+
+                    //checkif these are inside our map
+                    if(IsInMapRange(drawX, drawY))
+                    {
+                        map[drawX, drawY] = 0; //set our passage way point to open space one 0 at a time to draw a cirlce
+                    }
+                }
+            }
+        }
+    }
+
+    //returns a line between two points in an a 2d grid between the "start" point and "to" point
+    //line is made up of coordinates in the x,y grid representing shortest path between start and to
+    List<Coord> GetLine(Coord from, Coord to)
+    {
+        List<Coord> line = new List<Coord>();
+        int x = from.tileX;
+        int y = from.tileY;
+
+        bool inverted = false;
+
+        //delta x and delta y
+        int dx = to.tileX - from.tileX;
+        int dy = to.tileY - from.tileY;
+
+        int step = Math.Sign(dx);//value by which we are going to increment x each step
+        int gradientStep = Math.Sign(dy);
+
+        int longest = Mathf.Abs(dx);
+        int shortest = Mathf.Abs(dy);
+
+        // if the gradient is inverted we increment y instead of x
+        //e.g., a steep almost vertical line along the x y axis
+        if(longest < shortest)
+        {
+            //inverted
+            inverted = true;
+            longest = Mathf.Abs(dy);
+            shortest = Mathf.Abs(dx);
+
+            step = Math.Sign(dy);
+            gradientStep = Math.Sign(dx);
+        }
+
+        int gradientAccumulation = longest / 2;
+        for (int i = 0; i <longest; i++)
+        {
+            line.Add(new Coord(x, y));
+
+            if(inverted)
+            {
+                y += step;
+            } else
+            {
+                x += step;
+            }
+
+            gradientAccumulation += shortest;
+            if(gradientAccumulation >= longest)
+            {
+                if(inverted) {
+                    x += gradientStep;
+                } else
+                {
+                    y += gradientStep;
+                }
+                gradientAccumulation -= longest;
+            }
+        }
+
+        return line;
+
     }
 
     Vector3 CoordToWorldPoint(Coord tile)

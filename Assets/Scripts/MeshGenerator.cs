@@ -6,6 +6,8 @@ public class MeshGenerator : MonoBehaviour {
 
     public SquareGrid squareGrid;
     public MeshFilter walls;
+    public MeshFilter cave;
+
     List<Vector3> vertices;
     List<int> triangles;
 
@@ -30,6 +32,19 @@ public class MeshGenerator : MonoBehaviour {
         outlines.Clear();
         checkedVertices.Clear();
         triangleDictionary.Clear();
+        
+        //NB! testing code - this is for when we reset the map and a collider lready exists on the previous map
+        if(walls.gameObject.GetComponent<MeshCollider>())
+        {
+            Destroy(walls.gameObject.GetComponent<MeshCollider>());
+        }
+        if (cave.gameObject.GetComponent<MeshCollider>())
+        {
+            Destroy(cave.gameObject.GetComponent<MeshCollider>());
+        }
+
+
+
         squareGrid = new SquareGrid(map, squareSize);
 
         vertices = new List<Vector3>();
@@ -43,15 +58,20 @@ public class MeshGenerator : MonoBehaviour {
             }
         }
 
-        Mesh mesh =  new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
+        Mesh mesh = new Mesh();
+        cave.mesh = mesh;
 
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
 
         mesh.RecalculateNormals();
 
+        //add a mesh collider to the landmass we have generated
+        MeshCollider landCollider = cave.gameObject.AddComponent<MeshCollider>();
+        landCollider.sharedMesh = mesh;
+
         CreateWallMesh();
+        
     }
 
     void CreateWallMesh()
@@ -66,13 +86,13 @@ public class MeshGenerator : MonoBehaviour {
 
         foreach (List<int> outline in outlines)
         {
-            for(int i = 0; i < outline.Count -1; i++)
+            for (int i = 0; i < outline.Count - 1; i++)
             {
                 int startIndex = wallVertices.Count;
                 wallVertices.Add(vertices[outline[i]]);//left vertex 0
-                wallVertices.Add(vertices[outline[i+1]]);//right vertex 1
+                wallVertices.Add(vertices[outline[i + 1]]);//right vertex 1
                 wallVertices.Add(vertices[outline[i]] - Vector3.up * wallHeight);//bottom left vertex 2
-                wallVertices.Add(vertices[outline[i+1]] - Vector3.up * wallHeight);//bottom right vertex 3
+                wallVertices.Add(vertices[outline[i + 1]] - Vector3.up * wallHeight);//bottom right vertex 3
 
                 //winding wall triangles anti clockwise::
 
@@ -95,7 +115,11 @@ public class MeshGenerator : MonoBehaviour {
         wallMesh.vertices = wallVertices.ToArray();
         wallMesh.triangles = wallTriangles.ToArray();
         walls.mesh = wallMesh;
-    }
+
+        //add a meshcollider to our wall object
+        MeshCollider wallCollider = walls.gameObject.AddComponent<MeshCollider>();
+        wallCollider.sharedMesh = wallMesh;
+    } 
 
     void TriangulateSquare(Square square)
     {
@@ -230,6 +254,8 @@ public class MeshGenerator : MonoBehaviour {
     //go through every single vertex in the mesh
     //check if its an outline
     //if it is an outline then follow that outline until it meets up with itself again and then add it to the outlines list
+    //updates the list of outlines 
+    //each oultline is made up of int verex indeces
     void CalculateMeshOutlines()
     {
         for (int vertexIndex = 0; vertexIndex < vertices.Count; vertexIndex ++)
@@ -402,22 +428,22 @@ public class MeshGenerator : MonoBehaviour {
             centreBottom = bottomLeft.right;
             centreLeft = bottomLeft.above;
 
-            if (topLeft.active)
+            if (!topLeft.active)
             {
                 configuration += 8;
             }
 
-            if (topRight.active)
+            if (!topRight.active)
             {
                 configuration += 4;
             }
 
-            if(bottomRight.active)
+            if(!bottomRight.active)
             {
                 configuration += 2;
             }
 
-            if (bottomLeft.active)
+            if (!bottomLeft.active)
             {
                 configuration += 1;
             }
