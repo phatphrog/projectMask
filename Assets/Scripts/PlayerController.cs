@@ -19,13 +19,15 @@ public class PlayerController : MonoBehaviour {
     public float zoomMax = -10;
 
     public float rotationSpeed = 5f;
+
+    private bool isRunning = false;
     
 	void Start () {
         zoom = -7;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         zoom += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 
@@ -53,8 +55,24 @@ public class PlayerController : MonoBehaviour {
         playerCamera.LookAt(centerPoint);
         centerPoint.localRotation = Quaternion.Euler(-mouseY, mouseX, 0);
 
-        moveFrontBack = Input.GetAxis("Vertical") * moveSpeed;
-        moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed;
+        if(Input.GetAxis("Vertical") > 0 && Input.GetButton("Run"))
+        {
+            isRunning = true; 
+        } else
+        {
+            isRunning = false;
+        }
+
+        if(isRunning)
+        {
+            moveFrontBack = Input.GetAxis("Vertical") * moveSpeed*3;
+            moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed*3;
+        } else
+        {
+            moveFrontBack = Input.GetAxis("Vertical") * moveSpeed;
+            moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed;
+        }
+        
 
         Vector3 movement = new Vector3(moveLeftRight, 0, moveFrontBack);
         movement = player.rotation * movement; 
