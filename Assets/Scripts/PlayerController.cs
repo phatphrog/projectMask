@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour {
     public Transform playerCamera, player, centerPoint;
 
     private float mouseX, mouseY;
-    public float mouseSensitivity = 10f;
+    public float mouseSensitivity = 22f;
     public float mouseYPosition = 1f;
 
     private float moveFrontBack, moveLeftRight;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 4f;
 
     private float zoom;
     public float zoomSpeed = 2;
@@ -72,8 +72,7 @@ public class PlayerController : MonoBehaviour {
             moveFrontBack = Input.GetAxis("Vertical") * moveSpeed;
             moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed;
         }
-        
-
+         
         Vector3 movement = new Vector3(moveLeftRight, 0, moveFrontBack);
         movement = player.rotation * movement; 
         player.GetComponent<CharacterController>().Move(movement * Time.deltaTime);
