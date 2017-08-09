@@ -9,8 +9,12 @@ public class PlayerController : MonoBehaviour {
     public float mouseSensitivity = 22f;
     public float mouseYPosition = 1f;
 
+    private float verticalInput;
+    private float horizontalInput;
+
     private float moveFrontBack, moveLeftRight;
-    public float moveSpeed = 4f;
+    public float walkSpeed = 4f;
+    private float moveSpeed;
 
     private float zoom;
     public float zoomSpeed = 2;
@@ -19,24 +23,23 @@ public class PlayerController : MonoBehaviour {
     public float zoomMax = -10;
 
     public float rotationSpeed = 5f;
-
-    private bool isRunning = false;
     
 	void Start () {
         zoom = -7;
+        moveSpeed = walkSpeed;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void FixedUpdate() {
 
         zoom += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 
-        if(zoom > zoomMin)
+        if (zoom > zoomMin)
         {
             zoom = zoomMin;
         }
-	    
-        if(zoom < zoomMax)
+
+        if (zoom < zoomMax)
         {
             zoom = zoomMax;
         }
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         //control camera's zoom in and out from the player
         playerCamera.transform.localPosition = new Vector3(0, 0, zoom);
 
-        if(Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
             mouseX += Input.GetAxis("Mouse X");
             mouseY += Input.GetAxis("Mouse Y");
@@ -55,30 +58,33 @@ public class PlayerController : MonoBehaviour {
         playerCamera.LookAt(centerPoint);
         centerPoint.localRotation = Quaternion.Euler(-mouseY, mouseX, 0);
 
-        if(Input.GetAxis("Vertical") > 0 && Input.GetButton("Run"))
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        if (verticalInput > 0 && Input.GetButton("Run") || horizontalInput != 0 && Input.GetButton("Run") && verticalInput >= 0)
         {
-            isRunning = true; 
+            //running
+            moveSpeed = walkSpeed * 3;
+
+        } else if(verticalInput < 0)
+        {
+            //walking backwards
+            moveSpeed = walkSpeed * 0.6f;
         } else
         {
-            isRunning = false;
+            //walking
+            moveSpeed = walkSpeed;
         }
 
-        if(isRunning)
-        {
-            moveFrontBack = Input.GetAxis("Vertical") * moveSpeed*3;
-            moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed*3;
-        } else
-        {
-            moveFrontBack = Input.GetAxis("Vertical") * moveSpeed;
-            moveLeftRight = Input.GetAxis("Horizontal") * moveSpeed;
-        }
-         
+        moveFrontBack = verticalInput * moveSpeed;
+        moveLeftRight = horizontalInput * moveSpeed;
+
         Vector3 movement = new Vector3(moveLeftRight, 0, moveFrontBack);
         movement = player.rotation * movement; 
         player.GetComponent<CharacterController>().Move(movement * Time.deltaTime);
         centerPoint.position = new Vector3(player.position.x, player.position.y + mouseYPosition, player.position.z);
 
-        if(Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0)
+        if(Input.GetAxis("Vertical") > 0 || Input.GetAxis("Horizontal") < 0)
         {
             Quaternion turnAngle = Quaternion.Euler(0, centerPoint.eulerAngles.y, 0);
 

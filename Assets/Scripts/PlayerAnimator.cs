@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerAnimator : MonoBehaviour {
 
     private Animator anim;
+    private float verticalInput;
+    private float horizontalInput;
 
 
     // Use this for initialization
@@ -15,16 +17,23 @@ public class PlayerAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        Debug.Log(Input.GetAxis("Horizontal") + " "+ Input.GetAxis("Vertical"));
+        // Debug.Log(Input.GetAxis("Horizontal") + " "+ Input.GetAxis("Vertical"));
 
-        if (Input.GetButton("Run"))
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetButton("Run") && verticalInput >= 0)
         {
-            anim.SetFloat("VelocityX", Input.GetAxis("Horizontal")*2);
-            anim.SetFloat("VelocityY", Input.GetAxis("Vertical")*2);
+            anim.SetFloat("VelocityX", horizontalInput * 2);
+            anim.SetFloat("VelocityY", verticalInput * 2);
         } else
         {   
-            anim.SetFloat("VelocityX", Input.GetAxis("Horizontal"));
-            anim.SetFloat("VelocityY", Input.GetAxis("Vertical"));
+            if(verticalInput < 0)
+            {
+                //verticalInput = verticalInput * 5;
+            }
+            anim.SetFloat("VelocityX", horizontalInput);
+            anim.SetFloat("VelocityY", verticalInput);
         } 
 
 	}
