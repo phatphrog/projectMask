@@ -7,6 +7,9 @@ public class MapGenerator : MonoBehaviour {
     public int width;
     public int height;
 
+    [Range(0,10)]
+    public int smooth = 5;
+
     public string seed;
     public bool useRandomSeed;
 
@@ -37,7 +40,7 @@ public class MapGenerator : MonoBehaviour {
         //different values for i will generate different cave shapes
         //e.g., change to different rule sets after a number of steps
         //then change back
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < smooth; i++)
         {
             SmoothMap();
         }
