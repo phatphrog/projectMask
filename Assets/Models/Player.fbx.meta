@@ -3,7 +3,7 @@ guid: a55cad1371b46224faf959714f4fee48
 timeCreated: 1501874474
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Armature
     100002: Cube.001
@@ -33,6 +33,7 @@ ModelImporter:
     100050: Spine_end
     100052: Upper Leg.L
     100054: Upper Leg.R
+    100056: Skin
     400000: Armature
     400002: Cube.001
     400004: Foot.L
@@ -61,7 +62,9 @@ ModelImporter:
     400050: Spine_end
     400052: Upper Leg.L
     400054: Upper Leg.R
+    400056: Skin
     4300000: Cube.001
+    4300002: Skin
     7400000: Armature|Idle
     7400002: Armature|Run
     7400004: Armature|WALK
@@ -77,28 +80,41 @@ ModelImporter:
     7400024: Armature|Run_right
     7400026: Armature|Walk_left
     7400028: Armature|Walk_right
+    7400030: Armature|Jump
     9500000: //RootNode
     13700000: Cube.001
+    13700002: Skin
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: f58bed420fda8d84eb09efd697120695, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Armature|Idle
@@ -124,64 +140,36 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Jump
+      takeName: Armature|Jump
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -208,64 +196,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -292,64 +224,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -376,64 +252,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -460,64 +280,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -544,64 +308,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -628,64 +336,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -712,64 +364,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -796,64 +392,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -880,64 +420,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -964,64 +448,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -1048,64 +476,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -1132,64 +504,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -1216,64 +532,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Hips
-        weight: 1
-      - path: Armature/Hips/Spine
-        weight: 1
-      - path: Armature/Hips/Spine/Spine_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Left Toe.L/Left Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L
-        weight: 1
-      - path: Armature/Hips/Upper Leg.L/Lower Leg.L/Foot.L/Right Toe.L/Right Toe.L_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Left Toe.R/Left Toe.R_end
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R
-        weight: 1
-      - path: Armature/Hips/Upper Leg.R/Lower Leg.R/Foot.R/Right Toe.R/Right Toe.R_end
-        weight: 1
-      - path: Armature/Leg IK.L
-        weight: 1
-      - path: Armature/Leg IK.L/Leg IK.L_end
-        weight: 1
-      - path: Armature/Leg IK.R
-        weight: 1
-      - path: Armature/Leg IK.R/Leg IK.R_end
-        weight: 1
-      - path: Armature/Pole Target.L
-        weight: 1
-      - path: Armature/Pole Target.L/Pole Target.L_end
-        weight: 1
-      - path: Armature/Pole Target.R
-        weight: 1
-      - path: Armature/Pole Target.R/Pole Target.R_end
-        weight: 1
-      - path: Cube.001
-        weight: 1
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 1
@@ -1282,13 +542,18 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -1298,9 +563,11 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -1311,7 +578,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
