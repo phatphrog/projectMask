@@ -7,6 +7,7 @@ using System.Collections;
 public class PlayerAnimator : MonoBehaviour {
 
     private Animator anim;
+    private CharacterController controller;
     private float verticalInput;
     private float horizontalInput;
 
@@ -15,7 +16,8 @@ public class PlayerAnimator : MonoBehaviour {
     void Start () {
         //get the animator component
         anim = GetComponent<Animator>();
-
+        controller = GetComponent<CharacterController>();
+        
 	 }
 	
 	//called once per frame
@@ -28,20 +30,18 @@ public class PlayerAnimator : MonoBehaviour {
 
         if (Input.GetButton("Run") && verticalInput >= 0)
         {
+            anim.SetBool("IsRunning", true);
             anim.SetFloat("VelocityX", horizontalInput * 2);
             anim.SetFloat("VelocityY", verticalInput * 2);
         } else
-        {   
-            if(verticalInput < 0)
-            {
-                //verticalInput = verticalInput * 5;
-            }
+        {
+            anim.SetBool("IsRunning", false);
             anim.SetFloat("VelocityX", horizontalInput);
             anim.SetFloat("VelocityY", verticalInput);
         }
 
-        //standing jump
-        if (Input.GetButton("Jump") && verticalInput == 0 && horizontalInput == 0)
+        //jump
+        if (Input.GetButton("Jump") && controller.isGrounded)
         {
             anim.SetFloat("VelocityZ", 1);
         }

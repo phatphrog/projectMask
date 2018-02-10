@@ -5,12 +5,13 @@
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float walkSpeed = 6.0F;
-    public float speed = 6.0F;
-    public float jumpSpeed = 9.0F;
+    public float walkSpeed = 4.0F;
+    public float speed = 4.0F;
+    public float jumpSpeed = 9.1F;
     public float gravity = 15.0F;
     private Vector3 moveDirection = Vector3.zero;
     CharacterController controller;
+    private int count = 0;
 
     //Assign out controller
     void Start()
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour
             moveDirection *= speed;
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
+
+            //TODO: make a jump cooldown
 
         }
         moveDirection.y -= gravity * Time.deltaTime;

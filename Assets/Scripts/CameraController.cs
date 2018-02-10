@@ -41,11 +41,9 @@ public class CameraController : MonoBehaviour {
         //control camera's zoom in and out from the player
         playerCamera.transform.localPosition = new Vector3(0, 0, zoom);
 
-        if (Input.GetMouseButton(1))
-        {
-            mouseX += Input.GetAxis("Mouse X");
-            mouseY += Input.GetAxis("Mouse Y");
-        }
+        //camera looks at where mouse is pointing at any give frame
+        mouseX += Input.GetAxis("Mouse X");
+        mouseY += Input.GetAxis("Mouse Y");
 
         //math clamp stop camera from going all the way around
         mouseY = Mathf.Clamp(mouseY, -60f, 60f);
