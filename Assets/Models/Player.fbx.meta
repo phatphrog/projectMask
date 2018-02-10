@@ -81,6 +81,7 @@ ModelImporter:
     7400026: Armature|Walk_left
     7400028: Armature|Walk_right
     7400030: Armature|Jump
+    7400032: Armature|Jump_standing
     9500000: //RootNode
     13700000: Cube.001
     13700002: Skin
@@ -145,10 +146,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Jump
-      takeName: Armature|Jump
+      name: Armature|Jump_standing
+      takeName: Armature|Jump_standing
       firstFrame: 0
-      lastFrame: 32
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Controls player animation input vars
+/// </summary>
 public class PlayerAnimator : MonoBehaviour {
 
     private Animator anim;
@@ -8,13 +11,14 @@ public class PlayerAnimator : MonoBehaviour {
     private float horizontalInput;
 
 
-    // Use this for initialization
+    //initialization
     void Start () {
+        //get the animator component
         anim = GetComponent<Animator>();
 
-	}
+	 }
 	
-	// Update is called once per frame
+	//called once per frame
 	void FixedUpdate () {
 
         // Debug.Log(Input.GetAxis("Horizontal") + " "+ Input.GetAxis("Vertical"));
@@ -34,7 +38,17 @@ public class PlayerAnimator : MonoBehaviour {
             }
             anim.SetFloat("VelocityX", horizontalInput);
             anim.SetFloat("VelocityY", verticalInput);
-        } 
+        }
+
+        //standing jump
+        if (Input.GetButton("Jump") && verticalInput == 0 && horizontalInput == 0)
+        {
+            anim.SetFloat("VelocityZ", 1);
+        }
+        else
+        {
+            anim.SetFloat("VelocityZ", 0);
+        }
 
 	}
 }
