@@ -30,12 +30,10 @@ public class PlayerAnimator : MonoBehaviour {
 
         if (Input.GetButton("Run") && verticalInput >= 0)
         {
-            anim.SetBool("IsRunning", true);
             anim.SetFloat("VelocityX", horizontalInput * 2);
             anim.SetFloat("VelocityY", verticalInput * 2);
         } else
         {
-            anim.SetBool("IsRunning", false);
             anim.SetFloat("VelocityX", horizontalInput);
             anim.SetFloat("VelocityY", verticalInput);
         }
