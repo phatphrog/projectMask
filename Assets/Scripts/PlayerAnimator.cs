@@ -10,10 +10,11 @@ public class PlayerAnimator : MonoBehaviour {
     private CharacterController controller;
     private float verticalInput;
     private float horizontalInput;
+    private float playerHeight;
 
 
     //initialization
-    void Start () {
+    void Awake () {
         //get the animator component
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
@@ -27,26 +28,23 @@ public class PlayerAnimator : MonoBehaviour {
 
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
+        playerHeight = controller.transform.position.y;
 
+        //set player movement
         if (Input.GetButton("Run") && verticalInput >= 0)
         {
             anim.SetFloat("VelocityX", horizontalInput * 2);
             anim.SetFloat("VelocityY", verticalInput * 2);
+            
         } else
         {
             anim.SetFloat("VelocityX", horizontalInput);
             anim.SetFloat("VelocityY", verticalInput);
         }
 
-        //jump
-        if (Input.GetButton("Jump") && controller.isGrounded)
-        {
-            anim.SetFloat("VelocityZ", 1);
-        }
-        else
-        {
-            anim.SetFloat("VelocityZ", 0);
-        }
+        //set player jumping
+        anim.SetFloat("VelocityZ", playerHeight);
+
 
 	}
 }

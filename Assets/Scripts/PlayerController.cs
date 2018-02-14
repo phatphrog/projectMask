@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
-                //walking backwards`
+                //walking backwards
                 speed = walkSpeed * 0.6f;
             }
             else
@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour
             moveDirection *= speed;
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
-
-            //TODO: make a jump cooldown
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
